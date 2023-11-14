@@ -1,0 +1,86 @@
+.item {
+  padding: 16px 32px;
+  margin-bottom: 16px;
+  border: 1px solid #c0c0c0;
+  box-shadow: 8px 8px #c0c0c0;
+}
+
+.field {
+  margin-bottom: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  font-weight: bold;
+  font-variant: uppercase;
+  border-bottom: 1px solid #c0c0c0;
+  margin-bottom: 4px;
+}
+
+.value {
+  color: #c0c0c0;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.control .field {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.top-message {
+  text-align: left;
+  color: #fff;
+  background-color: #f00;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.top-message .error {
+  margin: 8px;
+}
+
+.control .message {
+  text-align: right;
+}
+
+.control label {
+  width: 200px;
+}
+
+.control input:not([type="checkbox"]) {
+  width: auto;
+}
+
+.control input[type="checkbox"] {
+  margin: 0;
+  padding: 0;
+  width: 16px;
+}
+
+.control:last-child {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+.control:last-child > * {
+  text-align: center;
+}
+
+.control ul,
+.control li {
+  margin: 0 0 8px 0;
+  padding: 0;
+  list-style: none;
+  color: #f00;
+}

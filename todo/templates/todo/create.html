@@ -1,0 +1,78 @@
+<!-- todo/templates/todo/new.html -->
+{% extends 'todo/base.html' %} 
+{% load static %} 
+
+{% block title %}Todo{%endblock%} 
+
+{% block content %}
+<script>
+  function submit(e) {
+    document.querySelector('form').submit();
+  }
+</script>
+<h1>Create a new todo</h1>
+
+<div class="container">
+  <form class="form-control" action="{% url 'todo:create' %}" method="post">
+    {% csrf_token %}
+    {% if form.errors %}
+    <div class="top-message">
+    {% for field, errors in form.errors.items %}
+      {% for error in errors %}
+        <div class="error">{{error}}</div>
+      {% endfor %}
+    {% endfor %}
+    </div>
+    {% endif %}
+    <div class="control">
+      <div class="field">
+        {{form.user.label_tag}}
+        {{form.user}}
+      </div>
+      <!-- <div class="message">
+        {{form.user.errors}}
+      </div> -->
+    </div>
+    <div class="control">
+      <div class="field">
+        {{form.title.label_tag}}
+        {{form.title}}
+      </div>
+      <!-- <div class="message">
+        {{form.title.errors}}
+      </div> -->
+    </div>
+    <div class="control">
+      <div class="field">
+        {{form.description.label_tag}}
+        {{form.description}}
+      </div>
+      <!-- <div class="message">
+        {{form.description.errors}}
+      </div> -->
+    </div>
+    <div class="control">
+      <div class="field">
+        {{form.necessary_time.label_tag}}
+        {{form.necessary_time}}
+      </div>
+      <!-- <div class="message">
+        {{form.necessary_time.errors}}
+      </div> -->
+    </div>
+    <div class="control">
+      <div class="field">
+        {{form.level.label_tag}}
+        {{form.level}}
+      </div>
+      <!-- <div class="message">
+        {{form.level.errors}}
+      </div> -->
+    </div>
+    <div class="control">
+      <button onclick="submit()" >Create</button>
+      <a href="{% url 'todo:index' %}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

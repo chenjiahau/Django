@@ -1,0 +1,38 @@
+<!-- todo/templates/todo/index.html -->
+{% extends 'todo/base.html' %} 
+{% load static %} 
+
+{% block title %}Todo{%endblock%} 
+
+{% block content %}
+<h1>Todo[<a href="{% url 'todo:create' %}">Create</a>]</h1>
+
+<div class="container">
+  {% for item in todo_list %}
+  <div class="item">
+    <div class="field">
+      {{ item.get_status }}
+    </div>
+    <div class="field">
+      <div class="title">User</div>
+      <div class="value">{{ item.user.username }}</div>
+    </div>
+    <div class="field">
+      <div class="title">Id</div>
+      <div class="value">{{ item.id }}</div>
+    </div>
+    <div class="field">
+      <div class="title">Title</div>
+      <div class="value">{{item.title | upper }}</div>
+    </div>
+    <div class="field">
+      <div class="title">Description</div>
+      <div class="value">{{ item.description }}</div>
+    </div>
+    <div class="control">
+      <a href="{% url 'todo:item' item.id %}">Detail</a>
+    </div>
+  </div>
+  {% empty %} No data {% endfor %}
+</div>
+{% endblock %}
