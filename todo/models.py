@@ -47,7 +47,7 @@ class User(models.Model):
         max_length=64,
         validators=[MaxLengthValidator(64)]
     )
-    address = models.OneToOneField(
+    address = models.ForeignKey(
         Address,
         on_delete=models.CASCADE,
         null=True,
