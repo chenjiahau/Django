@@ -1,0 +1,35 @@
+[
+  {
+    "model": "todo.country_attribute",
+    "pk": 1,
+    "fields": {
+      "country": 1,
+      "language": "Taiwan",
+      "currency": "NTD",
+      "gdp": 1000,
+      "created_at": "2023-10-01T00:00:00.000Z"
+    }
+  },
+  {
+    "model": "todo.country_attribute",
+    "pk": 2,
+    "fields": {
+      "country": 2,
+      "language": "Japanese",
+      "currency": "JPY",
+      "gdp": 2000,
+      "created_at": "2023-10-02T00:00:00.000Z"
+    }
+  },
+  {
+    "model": "todo.country_attribute",
+    "pk": 3,
+    "fields": {
+      "country": 3,
+      "language": "USA",
+      "currency": "USD",
+      "gdp": 3000,
+      "created_at": "2023-10-03T00:00:00.000Z"
+    }
+  }
+]

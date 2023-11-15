@@ -42,6 +42,35 @@ class Country(models.Model):
         verbose_name_plural = "Countries"
 
 
+class Country_Attribute(models.Model):
+    country = models.ForeignKey(
+        Country,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name="country_attributes"
+    )
+    language = models.CharField(
+        max_length=64,
+        validators=[MaxLengthValidator(64)]
+    )
+    currency = models.CharField(
+        max_length=64,
+        validators=[MaxLengthValidator(64)]
+    )
+    gdp = models.IntegerField(
+        default=0,
+        validators=[MinValueValidator(0)]
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        verbose_name_plural = "CountryAttributes"
+
+
 class User(models.Model):
     username = models.CharField(
         max_length=64,
